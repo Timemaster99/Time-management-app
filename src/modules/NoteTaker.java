@@ -13,7 +13,7 @@ public class NoteTaker implements Module {
 	public void addNote(String title, String body, String tag, String Category) {
 		for (NoteCategory c : categories) {
 			if (c.getTitle().equalsIgnoreCase(Category)) {
-				
+				c.addNotes(new Note(title, body, tag));
 			}
 		}
 	}
