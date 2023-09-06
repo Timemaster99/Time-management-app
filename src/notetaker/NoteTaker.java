@@ -8,6 +8,8 @@ public interface NoteTaker {
 	
 	public void addNote(String title, String body, String tag, String Category);
 	
+	public Note getNote(String title, String Category);
+	
 	public void archiveNote(int index);
 	
 }

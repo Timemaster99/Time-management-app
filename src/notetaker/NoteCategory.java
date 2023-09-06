@@ -1,5 +1,6 @@
 package notetaker;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
 public class NoteCategory {
 	
 	String title;
-	List<Note> notes;
+	List<Note> notes = new LinkedList<Note>();
 	
 	NoteCategory(String title) {
 		this.title = title;
