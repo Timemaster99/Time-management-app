@@ -1,10 +1,10 @@
-package modules;
+package notetaker;
 
 import java.util.List;
 
 /**
  * 
- * Class used to organize objects of type {@link modules.Note Note} into lists based on common themes.
+ * Class used to organize objects of type {@link notetaker.Note Note} into lists based on common themes.
  *
  */
 public class NoteCategory {

@@ -1,4 +1,4 @@
-package modules;
+package notetaker;
 import java.time.*;
 
 /**

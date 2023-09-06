@@ -1,8 +1,8 @@
-package modules;
+package notetaker;
 
 import java.util.List;
 
-public class NoteTaker implements Module {
+public class NoteTakerImplementation implements NoteTaker {
 	
 	List<NoteCategory> categories;
 
@@ -17,5 +17,14 @@ public class NoteTaker implements Module {
 			}
 		}
 	}
-	
+
+	public void deleteCategory(String title) {
+		// TODO create this
+		
+	}
+
+	public void archiveNote(int index) {
+		// TODO create this, too
+		
+	}
 }
