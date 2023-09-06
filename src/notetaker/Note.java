@@ -42,5 +42,9 @@ public class Note {
 		this.tag = tag;
 	}
 	
+	public LocalDateTime getTimeStamp() {
+		return timestamp;
+	}
+	
 	
 }

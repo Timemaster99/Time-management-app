@@ -38,7 +38,6 @@ public class NoteTakerImplementation implements NoteTaker {
 						return note;
 					}
 				}
-				
 			}
 		}
 		return new Note("Invalid Note", "Could not find category or title", "Invalid"); // If all else fails, return invalid
