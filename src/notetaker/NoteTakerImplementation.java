@@ -22,6 +22,7 @@ public class NoteTakerImplementation implements NoteTaker {
 	public void deleteCategory(String title) {
 		// TODO create this
 		
+	
 	}
 
 	public void archiveNote(int index) {
