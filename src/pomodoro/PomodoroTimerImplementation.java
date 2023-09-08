@@ -4,6 +4,9 @@ public class PomodoroTimerImplementation implements PomodoroTimer {
 
 	long startTime;
 	long endTime;
+	int desiredcycles = 0;
+	int breaktime = 300000;
+	int longbreaktime = 1800000;
 
 	private void startTimer() {
 		startTime = System.currentTimeMillis();
@@ -26,25 +29,23 @@ public class PomodoroTimerImplementation implements PomodoroTimer {
 	public void runPomodoro() {
 
 		int pomodoros = 0;
-		int nextcycle = 1500000;
+		long nextcycle = 1500000;
 		long cycletemptime;
-		int breaktime = 300000;
-		int longbreaktime = 1800000;
 		int pomodorocycles = 0;
 
-		int desiredcycles = 0;
 
 		startTimer();
 
 		while (pomodorocycles < desiredcycles) {
 			while (pomodoros < 4) { // 4 cycle loop
-				if (elapsedTimeMillis() == nextcycle) {
+				if (elapsedTimeMillis() >= nextcycle) { // Check if 25 minutes are up
 					pomodoros++;
 					System.out.println("Cycle over, take 5 minute break");
 					cycletemptime = elapsedTimeMillis();
 					while (elapsedTimeMillis() < cycletemptime + breaktime) { // 5 minute break loop
 						
 					}
+					nextcycle = nextcycle+1500000+breaktime;
 				}
 			}
 			
