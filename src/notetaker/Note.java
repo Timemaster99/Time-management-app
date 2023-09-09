@@ -6,6 +6,7 @@ import java.time.*;
  */
 public class Note {
 	
+	int id;
 	String title;
 	String body;
 	NoteCategory category;
@@ -16,6 +17,10 @@ public class Note {
 		this.title = title;
 		this.body = body;
 		this.category = category;
+	}
+	
+	public int getID() {
+		return id;
 	}
 
 	public String getTitle() {
