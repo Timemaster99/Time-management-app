@@ -8,14 +8,14 @@ public class Note {
 	
 	String title;
 	String body;
-	String tag;
+	NoteCategory category;
 	LocalDateTime timestamp;
 	
-	Note(String title, String body, String tag) {
+	Note(String title, String body, NoteCategory category) {
 		timestamp = LocalDateTime.now();
 		this.title = title;
 		this.body = body;
-		this.tag = tag;
+		this.category = category;
 	}
 
 	public String getTitle() {
@@ -34,12 +34,8 @@ public class Note {
 		this.body = body;
 	}
 
-	public String getTag() {
-		return tag;
-	}
-
-	public void setTag(String tag) {
-		this.tag = tag;
+	public NoteCategory getTag() {
+		return category;
 	}
 	
 	public LocalDateTime getTimeStamp() {
