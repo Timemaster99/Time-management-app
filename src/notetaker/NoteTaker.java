@@ -1,14 +1,16 @@
 package notetaker;
 
+import java.sql.SQLException;
+
 public interface NoteTaker {
 
-	public void createCategory(String title);
+	public void createCategory(String title) throws SQLException;
 	
 	public void deleteCategory(String title);
 	
-	public void addNote(String title, String body, String tag, String Category);
+	public void addNote(String title, String body, int Category) throws SQLException;
 	
-	public Note getNote(String title, String Category);
+	public Note getNote(int id) throws SQLException;
 	
 	public void archiveNote(int index);
 	

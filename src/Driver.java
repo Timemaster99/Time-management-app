@@ -1,16 +1,12 @@
+import java.sql.SQLException;
+
 import notetaker.NoteTaker;
 import notetaker.NoteTakerImplementation;
 
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		NoteTaker NoteTakerObject = new NoteTakerImplementation();
-		
-		NoteTakerObject.createCategory("Test");
-		NoteTakerObject.addNote("Testing", "Test note", "Test", "Test");
-		System.out.println(NoteTakerObject.getNote("Testing", "Test").getTitle());
-		
-
 	}
 
 }

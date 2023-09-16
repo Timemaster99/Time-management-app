@@ -1,5 +1,6 @@
 package notetaker;
 import java.time.*;
+import java.sql.Timestamp;
 
 /**
  * Object for storing notes that includes a title, body, tag, and timestamp.
@@ -10,10 +11,10 @@ public class Note {
 	String title;
 	String body;
 	NoteCategory category;
-	LocalDateTime timestamp;
+	Timestamp timestamp;
 	
-	Note(String title, String body, NoteCategory category) {
-		timestamp = LocalDateTime.now();
+	Note(int id, String title, String body, NoteCategory category, Timestamp timestamp) {
+		timestamp = timestamp;
 		this.title = title;
 		this.body = body;
 		this.category = category;
@@ -43,7 +44,7 @@ public class Note {
 		return category;
 	}
 	
-	public LocalDateTime getTimeStamp() {
+	public Timestamp getTimeStamp() {
 		return timestamp;
 	}
 	
