@@ -7,9 +7,11 @@ package notetaker;
  */
 public class NoteCategory {
 	
+	int id;
 	String title;
 	
-	NoteCategory(String title) {
+	NoteCategory(int id, String title) {
+		this.id = id;
 		this.title = title;
 	}
 

@@ -139,6 +139,7 @@ public class NoteTakerImplementation implements NoteTaker {
 		preparedStatement.setInt(1, id);
 		
 		ResultSet resultSet = preparedStatement.executeQuery();
+		Note note = null;
 		
 	    while (resultSet.next()) {
 	        // Process the results
@@ -149,7 +150,9 @@ public class NoteTakerImplementation implements NoteTaker {
 	        Timestamp createdTime = resultSet.getTimestamp("createdTime");
 	        // Do something with the retrieved data
 	        
+	        // TODO: Find a way to feed this a category object
 	        //Note retrievedNote = new Note(tempid, title, body, category_id, createdTime);
+	        note = new Note(tempid, title, body, getCategory(category_id), createdTime);
 	    }
 		
 		// Closing connection
@@ -160,7 +163,51 @@ public class NoteTakerImplementation implements NoteTaker {
 		        e.printStackTrace();
 		    }
 		}
-		//return new Note(null, "Invalid Note", "Could not find category or title", null, null); // If all else fails, return invalid
-		return null; //TODO Return something
+		
+		return note;
 	}
+
+	@Override
+	public NoteCategory getCategory(int id) throws SQLException {
+		try {
+		    Class.forName("org.postgresql.Driver");
+		} catch (ClassNotFoundException e) {
+		    e.printStackTrace();
+		}
+		// Attempt connection
+		Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+		System.out.println("Connection established");
+
+		// String for query
+		String sqlQuery = "SELECT * FROM categories WHERE id = ?";
+		// Prepare statement
+		PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+		preparedStatement.setInt(1, id);
+		
+		ResultSet resultSet = preparedStatement.executeQuery();
+		NoteCategory category = null;
+		
+	    while (resultSet.next()) {
+	        // Process the results
+	        int tempid = resultSet.getInt("id");
+	        String title = resultSet.getString("title");
+	        // Do something with the retrieved data
+	        
+	        // TODO: create category object to return
+	        category = new NoteCategory(tempid, title);
+	    }
+		
+		// Closing connection
+		if (connection != null) {
+		    try {
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		}
+		
+		return category;
+		
+	}
+	
 }
